@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Slayer Mini Game</title>
+    <link rel="stylesheet" href="css/daisyui.css" />
+  </head>
+  <body class="min-h-screen flex justify-center items-center">
+    <div class="root card bg-gray-800 px-8 py-10">
+        <h1 class="text-4xl font-bold tracking-wider bg-indigo-900 rounded-lg px-4 py-5 text-indigo-100 mb-5 text-center">Monster Slayer Game</h1>
+        <div class="flex justify-evenly items-center">
+            <div>
+                <h2 class="font-bold text-xl tracking-wider text-indigo-300">Monster</h2>
+                <progress class="text-red-500" value="80" max="100"></progress>
+            </div>
+            <div>
+                <h2 class="font-bold text-xl tracking-wider text-indigo-300 text-right">You</h2>
+                <progress class="text-red-500" value="100" max="100"></progress>
+            </div>
+        </div>
+        <div class="divider my-3"></div>
+        <div>
+            <div>
+                <div class="w-full flex justify-center mb-3">
+                    <button class="btn btn-info">Attack</button>
+                    <button class="btn btn-primary ml-5">Special Attack</button>
+                </div>
+                <div class="w-full flex justify-center">
+                    <button class="btn btn-success">Heal</button>
+                    <button class="btn btn-error ml-5">Surrender</button>
+                </div>
+            </div>
+        </div>
+        <div class="divider my-3"></div>
+        <div>
+            <h2 class="text-center text-2xl font-bold tracking-wider text-indigo-200">Battle Logs</h2>
+        </div>
+    </div>
+    <script src="js/tailwind.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/monsterslayer.js"></script>
+  </body>
+</html>
