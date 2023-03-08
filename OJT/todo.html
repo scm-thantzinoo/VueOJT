@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/daisyui.css" />
+  </head>
+  <body>
+    <div class="root p-5">
+      <input class="input input-bordered mr-3" type="text" v-model="newTodo" />
+      <button class="btn btn-primary" @click="add">Add</button>
+      <h2 class="my-5 text-2xl font-bold text-blue-400">
+        Todo List - {{todos.length}}
+      </h2>
+      <ul>
+        <li class="mb-5 list-disc ml-5" v-for="todo in todos">
+          <span
+            class="mr-3 cursor-pointer select-none"
+            @click="change(todo)"
+            :class="{'line-through': todo.status == 'done'}"
+            >{{todo.task}}</span
+          >
+          <span
+            class="badge badge-warning select-none"
+            v-if="todo.status == 'not yet'"
+            >New!</span
+          >
+          <span
+            class="badge badge-primary select-none"
+            v-if="todo.status == 'ongoing'"
+            >Keep Doing!</span
+          >
+          <button
+            class="btn btn-sm btn-error"
+            v-if="todo.status == 'done'"
+            @click="deleteTodo(todo)"
+          >
+            Delete
+          </button>
+        </li>
+      </ul>
+      <div class="divider w-1/4"></div>
+      <h2 class="my-5 text-2xl font-bold text-green-400">
+        Finished Tasks - {{finishedTodo.length}}
+      </h2>
+      <ul>
+        <li class="mb-5 list-disc ml-5" v-for="todo in finishedTodo">
+          <span>{{todo.task}}</span>
+        </li>
+      </ul>
+    </div>
+    <script src="js/tailwind.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            newTodo: "",
+            todos: [
+              {
+                task: "To Write Vue Project",
+                status: "ongoing",
+              },
+              {
+                task: "To Create Laravel",
+                status: "not yet",
+              },
+              {
+                task: "To Learn HTML, CSS",
+                status: "done",
+              },
+            ],
+          };
+        },
+        computed: {
+          finishedTodo() {
+            return this.todos.filter((todo) => todo.status == "done");
+          },
+        },
+        methods: {
+          add() {
+            if (this.newTodo) {
+              this.todos.push({
+                task: this.newTodo,
+                status: "not yet",
+              });
+              this.newTodo = "";
+            }
+          },
+          change(todo) {
+            todo.status =
+              todo.status == "not yet"
+                ? "done"
+                : todo.status == "ongoing"
+                ? "done"
+                : "ongoing";
+          },
+          deleteTodo(todo) {
+            const index = this.todos.indexOf(todo);
+            if (index >= 0) {
+              this.todos.splice(index, 1);
+            }
+          },
+        },
+      }).mount(".root");
+    </script>
+  </body>
+</html>
