@@ -7,36 +7,77 @@
     <title>Monster Slayer Mini Game</title>
     <link rel="stylesheet" href="css/daisyui.css" />
   </head>
+
   <body class="min-h-screen flex justify-center items-center">
-    <div class="root card bg-gray-800 px-8 py-10">
-        <h1 class="text-4xl font-bold tracking-wider bg-indigo-900 rounded-lg px-4 py-5 text-indigo-100 mb-5 text-center">Monster Slayer Game</h1>
-        <div class="flex justify-evenly items-center">
-            <div>
-                <h2 class="font-bold text-xl tracking-wider text-indigo-300">Monster</h2>
-                <progress class="text-red-500" value="80" max="100"></progress>
-            </div>
-            <div>
-                <h2 class="font-bold text-xl tracking-wider text-indigo-300 text-right">You</h2>
-                <progress class="text-red-500" value="100" max="100"></progress>
-            </div>
-        </div>
-        <div class="divider my-3"></div>
+    <div id="game" class="root card bg-gray-800 px-8 py-10">
+      <h1
+        class="text-4xl font-bold tracking-wider bg-indigo-900 rounded-lg px-4 py-4 text-indigo-100 mb-5 text-center"
+      >
+        Monster Slayer Game
+      </h1>
+      <div class="flex justify-evenly items-center">
         <div>
-            <div>
-                <div class="w-full flex justify-center mb-3">
-                    <button class="btn btn-info">Attack</button>
-                    <button class="btn btn-primary ml-5">Special Attack</button>
-                </div>
-                <div class="w-full flex justify-center">
-                    <button class="btn btn-success">Heal</button>
-                    <button class="btn btn-error ml-5">Surrender</button>
-                </div>
-            </div>
+          <h2 class="font-bold text-xl tracking-wider text-indigo-300 mb-2">
+            Monster
+          </h2>
+          <div class="w-40 h-3 bg-gray-400">
+            <div
+              class="h-3"
+              :class="monsterBarClasses"
+              :style="monsterBarStyles"
+            ></div>
+          </div>
         </div>
-        <div class="divider my-3"></div>
         <div>
-            <h2 class="text-center text-2xl font-bold tracking-wider text-indigo-200">Battle Logs</h2>
+          <h2
+            class="font-bold text-xl tracking-wider text-indigo-300 text-left mb-2"
+          >
+            You
+          </h2>
+          <div class="w-40 h-3 bg-gray-400">
+            <div
+              class="h-3"
+              :class="playerBarClasses"
+              :style="playerBarStyles"
+            ></div>
+          </div>
         </div>
+      </div>
+      <div class="divider my-3"></div>
+      <div class="text-center" v-if="winner">
+        <h2 class="font-bold text-xl text-indigo-400 mb-3">Game Over</h2>
+        <p class="font-bold text-4xl text-red-500" v-if="winner === 'monster'">You Lost!</p>
+        <p class="font-bold text-4xl text-green-500" v-else-if="winner === 'player'">You Win!</p>
+        <p class="font-bold text-4xl text-gray-500" v-else>Draw!</p>
+        <button class="btn btn-info mt-5" @click="restartGame">Restart</button>
+      </div>
+      <div v-else>
+        <div>
+          <div class="w-full flex justify-center mb-3">
+            <button class="btn btn-info" @click="attackMonster">Attack</button>
+            <button class="btn btn-primary ml-5" :disabled="mayUseSpecialAttack" @click="specialAttackMonster">Special Attack</button>
+          </div>
+          <div class="w-full flex justify-center">
+            <button class="btn btn-success" @click="healPlayer">Heal</button>
+            <button class="btn btn-error ml-5" @click="surrender">Surrender</button>
+          </div>
+        </div>
+      </div>
+      <div class="divider my-3"></div>
+      <div v-if="logs.length">
+        <h2
+          class="text-center text-2xl font-bold tracking-wider text-indigo-200 underline underline-offset-8 mb-5"
+        >
+          Battle Logs
+        </h2>
+        <ul class="text-center h-48 overflow-auto px-4 py-5">
+            <li class="bg-indigo-900 mb-3 rounded-lg py-2" v-for="log in logs">
+                <span class="text-yellow-500">{{log.actionBy == 'player' ? 'Player ' : 'Monster '}}</span> 
+                <span class="text-green-300">{{log.actionType == 'heal' ? 'heals himself ' : 'attacks and makes '}} </span>                  
+                <span class="text-indigo-100">{{log.actionValue}} {{log.actionType == 'heal' ? 'Healths' : 'Damages'}}</span>
+            </li>
+        </ul>
+      </div>
     </div>
     <script src="js/tailwind.js"></script>
     <script src="js/vue.js"></script>
