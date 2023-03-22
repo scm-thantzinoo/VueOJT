@@ -5,7 +5,7 @@
         <router-link class="link" to="/ojt-one">OJT Project 1</router-link>
         <router-link class="link" to="/ojt-two">OJT Project 2</router-link>
         <router-link class="link" to="/ojt-three">OJT Project 3</router-link>
-        <router-link class="link" to="/books">Books List</router-link>
+        <router-link class="link" to="/books-list">Books List</router-link>
     </div>
 </template>
 <style scoped>
