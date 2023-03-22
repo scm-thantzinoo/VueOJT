@@ -1,8 +1,7 @@
 <script setup>
-import ojtFooterVue from './components/ojtFooter.vue';
-import ojtHeader from './components/ojtHeader.vue';
-import secondOjtContent from './components/secondOjtContent.vue';
-import ojtFooterVue from './components/ojtFooter.vue';
+import ojtHeader from "./components/ojtHeader.vue";
+import secondOjtContent from "./components/secondOjtContent.vue";
+import ojtFooter from "./components/ojtFooter.vue";
 
 const title = "Welcome from OJT Project 2";
 const movieList = [
@@ -12,9 +11,8 @@ const movieList = [
   "Mystery of Burma",
   "Phoe Shate",
   "Mudras calling",
-  "Deception"
-]
-
+  "Deception",
+];
 </script>
 
 <template>

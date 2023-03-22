@@ -11,11 +11,11 @@ import Books from '../views/Books.vue';
 
 const routes = [
     { path: '/', name: 'Dashboard', component: Dashboard },
-    { path: '/404', name: '404', component: NotFound },
-    { path: '/OjtOne', name: 'OjtOne', component: OjtOne },
-    { path: '/OjtTwo', name: 'OjtTwo', component: OjtTwo },
-    { path: '/OjtThree', name: 'OjtThree', component: OjtThree },
-    { path: '/Books', name: 'Books', component: Books },
+    { path: '/not-found', name: 'Not Found', component: NotFound },
+    { path: '/ojt-one', name: 'Ojt One', component: OjtOne },
+    { path: '/ojt-two', name: 'Ojt Two', component: OjtTwo },
+    { path: '/ojt-three', name: 'Ojt Three', component: OjtThree },
+    { path: '/books', name: 'Books', component: Books },
 ]
 
 const router = createRouter({
