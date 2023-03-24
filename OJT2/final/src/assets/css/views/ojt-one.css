@@ -1,0 +1,7 @@
+.body-text{
+    @apply bg-slate-700 w-full text-center min-h-screen tracking-widest flex items-center justify-center
+}
+
+.body-text p{
+    @apply text-4xl font-extrabold text-green-400;
+}

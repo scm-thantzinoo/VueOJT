@@ -1,0 +1,12 @@
+.header{
+    @apply text-slate-300 bg-slate-800 shadow-slate-700 flex items-center px-6 py-5 ;
+}
+.header-title{
+    @apply text-center text-2xl font-bold shadow-sm tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-300;
+}
+.header-nav{
+    @apply flex flex-1 items-center ml-5;
+}
+.header-link{
+    @apply border border-slate-600 bg-slate-700 shadow-lg px-4 py-2 rounded-lg uppercase font-bold tracking-wide ml-3 hover:bg-slate-600;
+}

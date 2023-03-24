@@ -1,0 +1,6 @@
+.footer{
+    @apply w-full text-slate-300;
+}
+.footer p{
+    @apply bg-slate-800 text-center py-3 text-xl;
+}
