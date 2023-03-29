@@ -1,6 +1,10 @@
 <template>
   <div class="header">
-    <h1 class="header-title">{{ title }}</h1>
+      <div class="header-title">
+        <router-link to="/">
+          <h1>{{ title }}</h1>
+        </router-link>
+      </div>
       <div class="header-nav">
           <router-link class="header-link" :class="{'active-route': isRoute('/ojt-one')}" to="/ojt-one">OJT One</router-link>
           <router-link class="header-link" :class="{'active-route': isRoute('/ojt-two')}" to="/ojt-two">OJT Two</router-link>

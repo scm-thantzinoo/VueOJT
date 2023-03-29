@@ -5,6 +5,7 @@ import OjtThree from '@/views/OjtThree.vue';
 import BooksList from '@/views/BooksList.vue';
 
 const routes = [
+  {path:'/', component:OjtOne},
   {path:'/ojt-one', component:OjtOne},
   {path:'/ojt-two', component:OjtTwo},
   {path:'/ojt-three', component:OjtThree},
