@@ -13,20 +13,12 @@
             </tr>
           </thead>
           <tbody class="table-body">
-            <tr
-              class="table-data-row"
-              v-for="(book, index) in books"
-              :key="index"
-            >
-              <td class="title">{{ book.title }}</td>
-              <td class="price">$ {{ book.price }}</td>
-              <td class="author">{{ book.author }}</td>
-              <td class="date">{{ book.date }}</td>
-            </tr>
+            <Book v-for="(book, index) in books" :key="index" :book="book" @changeData="changeBookData" />
           </tbody>
         </table>
       </div>
     </div>
+    <Modal v-if="modalBook" :book="modalBook" @modalCancel="modalCancel" @modalSubmit="modalSubmit" />
   </div>
 </template>
 

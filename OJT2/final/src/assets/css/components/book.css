@@ -1,0 +1,20 @@
+.table-data-row {
+    @apply border-b border-gray-200 text-lg font-semibold;
+    @apply hover:bg-gray-100;
+}
+
+.title {
+    @apply py-3 px-6 text-center whitespace-nowrap cursor-pointer select-none;
+}
+
+.price {
+    @apply py-3 px-6 text-center;
+}
+
+.author {
+    @apply py-3 px-6 text-center;
+}
+
+.date {
+    @apply py-3 px-6 text-center;
+}
