@@ -1,6 +1,9 @@
 <template>
   <div class="books-list-container">
-    <h1 class="books-list-title">Books List Menu</h1>
+    <div class="books-list-header">
+      <h1 class="books-list-title">Books List Menu</h1>
+      <button class="create-new-btn" @click="createBook">Create One</button>
+    </div>
     <div class="table-background">
       <div class="table-wrapper">
         <table class="w-full table-auto">
@@ -18,7 +21,8 @@
         </table>
       </div>
     </div>
-    <Modal v-if="modalBook" :book="modalBook" @modalCancel="modalCancel" @modalSubmit="modalSubmit" />
+    
+    <Modal v-if="modalBook" :book="modalBook" :isNewBook="isNewBook" @modalCancel="modalCancel" @editBook="editBook"  @createNewBook="createNewBook"/>
   </div>
 </template>
 

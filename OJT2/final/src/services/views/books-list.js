@@ -31,6 +31,8 @@ export default {
 
         const modalBook = ref(null)
 
+        const isNewBook = ref(false)
+
         const changeBookData = (book) => {
             let tmpBook = {...book};
             tmpBook.index = books.value.indexOf(book)
@@ -39,10 +41,16 @@ export default {
         }
 
         const modalCancel = () => {
+            isNewBook.value = false
             modalBook.value = null
         }
 
-        const modalSubmit = ({index, title, price, author, date}) => {
+        const createBook = () => {
+            isNewBook.value = true
+            modalBook.value = {}
+        }
+
+        const editBook = ({index, title, price, author, date}) => {
             const options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
             books.value[index] = {
                 title,
@@ -53,12 +61,27 @@ export default {
             modalBook.value = null;
         }
 
+        const createNewBook = ({title, price, author, date}) => {
+            isNewBook.value = false
+            modalBook.value = null
+            const options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+            books.value.push({
+                title,
+                price,
+                author,
+                date: new Date(date).toLocaleDateString('en-US', options)
+            })
+        }
+
         return {
             books,
             modalBook,
+            isNewBook,
+            createBook,
             changeBookData,
             modalCancel,
-            modalSubmit
+            editBook,
+            createNewBook
         };
     }
 }

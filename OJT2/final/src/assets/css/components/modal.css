@@ -1,5 +1,5 @@
 .modal-container{
-    @apply fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50;
+    @apply fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50 ;
 }
 .modal-wrapper{
     @apply bg-white bg-opacity-20 backdrop-blur-3xl rounded-lg shadow-lg p-8 space-y-6 w-2/5;
@@ -12,6 +12,12 @@
 }
 .modal-input{
     @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+}
+.modal-input[type="date"]{
+    @apply text-gray-400
+}
+.modal-input:valid{
+    @apply text-white
 }
 .modal-input-label{
     @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
