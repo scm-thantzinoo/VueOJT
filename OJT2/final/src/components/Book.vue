@@ -1,9 +1,9 @@
 <template>
   <tr class="table-data-row">
     <td class="title" @click="$emit('changeData', book)">{{ book.title }}</td>
-    <td class="price">$ {{ book.price }}</td>
     <td class="author">{{ book.author }}</td>
     <td class="date">{{ book.date }}</td>
+    <td class="price">$ {{ book.price }}</td>
   </tr>
 </template>
     

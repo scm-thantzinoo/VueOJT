@@ -10,9 +10,9 @@
           <thead>
             <tr class="table-header-row">
               <th class="table-header">Title</th>
-              <th class="table-header">Price</th>
               <th class="table-header">Author</th>
               <th class="table-header">Date</th>
+              <th class="table-header">Price</th>
             </tr>
           </thead>
           <tbody class="table-body">

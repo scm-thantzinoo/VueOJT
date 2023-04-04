@@ -1,11 +1,18 @@
 import {
-    ref
+    ref,
+    watch,
+    onMounted
 } from "vue";
 import Book from '@/components/Book.vue'
 import Modal from '@/components/Modal.vue'
+import {
+    setLocal,
+    getLocal
+} from '@/helpers/localstorage'
+
 export default {
-    components:{
-        Book, 
+    components: {
+        Book,
         Modal
     },
     setup() {
@@ -29,14 +36,35 @@ export default {
             },
         ]);
 
+        // to watch with localstorage, not working yet by the way
+        // onMounted(() => {
+        //     const booksList = getLocal('books')
+        //     if (booksList) {
+        //         books.value = booksList
+        //     } else {
+        //         setLocal('books', {
+        //             ...books.value
+        //         })
+        //     }
+        // })
+
+        // watch(books, (newValue, oldValue) => {
+        //     setLocal('books', newValue)
+        // }, {
+        //     deep: true
+        // })
+
         const modalBook = ref(null)
 
         const isNewBook = ref(false)
 
         const changeBookData = (book) => {
-            let tmpBook = {...book};
+            let tmpBook = {
+                ...book
+            };
             tmpBook.index = books.value.indexOf(book)
-            tmpBook.date = new Date(book.date).toISOString().substr(0, 10)
+            const parsedDate = new Date(tmpBook.date);
+            tmpBook.date = `${parsedDate.getFullYear()}-${(parsedDate.getMonth() + 1).toString().padStart(2, '0')}-${parsedDate.getDate().toString().padStart(2, '0')}`;
             modalBook.value = tmpBook;
         }
 
@@ -50,8 +78,19 @@ export default {
             modalBook.value = {}
         }
 
-        const editBook = ({index, title, price, author, date}) => {
-            const options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+        const editBook = ({
+            index,
+            title,
+            price,
+            author,
+            date
+        }) => {
+            const options = {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            };
             books.value[index] = {
                 title,
                 price,
@@ -61,10 +100,20 @@ export default {
             modalBook.value = null;
         }
 
-        const createNewBook = ({title, price, author, date}) => {
+        const createNewBook = ({
+            title,
+            price,
+            author,
+            date
+        }) => {
             isNewBook.value = false
             modalBook.value = null
-            const options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+            const options = {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            };
             books.value.push({
                 title,
                 price,

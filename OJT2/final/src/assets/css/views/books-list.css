@@ -27,7 +27,11 @@
 }
 
 .table-header {
-    @apply py-3 px-6 text-center;
+    @apply py-3 px-6 text-left;
+}
+
+.table-header:last-of-type{
+    @apply py-3 px-6 text-right;
 }
 
 .table-body {

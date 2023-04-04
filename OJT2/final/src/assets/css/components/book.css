@@ -4,17 +4,17 @@
 }
 
 .title {
-    @apply py-3 px-6 text-center whitespace-nowrap cursor-pointer select-none;
+    @apply py-3 px-6 text-left whitespace-nowrap cursor-pointer select-none;
 }
 
 .price {
-    @apply py-3 px-6 text-center;
+    @apply py-3 px-6 text-right;
 }
 
 .author {
-    @apply py-3 px-6 text-center;
+    @apply py-3 px-6 text-left;
 }
 
 .date {
-    @apply py-3 px-6 text-center;
+    @apply py-3 px-6 text-left;
 }

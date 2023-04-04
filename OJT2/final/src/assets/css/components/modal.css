@@ -8,7 +8,7 @@
     @apply mb-6;
 }
 .modal-title{
-    @apply text-2xl font-medium text-slate-800;
+    @apply text-2xl font-medium text-slate-800 select-none;
 }
 .modal-input{
     @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
@@ -30,4 +30,10 @@
 }
 .modal-btn-group{
     @apply flex justify-between items-center;
+}
+.modal-close{
+    @apply absolute top-2 right-10 text-4xl cursor-pointer;
+}
+.modal-close svg{
+    @apply text-slate-800 transition-all hover:scale-125 hover:rotate-90 hover:text-slate-900
 }
