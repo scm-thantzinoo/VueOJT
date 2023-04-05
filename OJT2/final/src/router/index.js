@@ -3,13 +3,15 @@ import OjtOne from '@/views/OjtOne.vue';
 import OjtTwo from '@/views/OjtTwo.vue';
 import OjtThree from '@/views/OjtThree.vue';
 import BooksList from '@/views/BooksList.vue';
+import Final from '@/views/Final.vue';
 
 const routes = [
   {path:'/', component:OjtOne},
   {path:'/ojt-one', component:OjtOne},
   {path:'/ojt-two', component:OjtTwo},
   {path:'/ojt-three', component:OjtThree},
-  {path:'/books-list', component:BooksList}
+  {path:'/books-list', component:BooksList},
+  {path:'/final', component:Final}
 ];
 
 const router = createRouter({

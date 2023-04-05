@@ -27,8 +27,14 @@
             class="modal-input"
             placeholder="Title"
             required
-            v-model="modalBook.title"
+            v-model="v$.title.$model"
           />
+          <span
+            class="error-msg"
+            v-for="(error, index) in v$.title.$errors"
+            :key="index"
+            >{{ error.$message }}</span
+          >
         </div>
         <div class="input-div">
           <label for="price" class="modal-input-label">Price</label>
@@ -39,8 +45,14 @@
             placeholder="Price"
             required
             step="0.01"
-            v-model="modalBook.price"
+            v-model="v$.price.$model"
           />
+          <span
+            class="error-msg"
+            v-for="(error, index) in v$.price.$errors"
+            :key="index"
+            >{{ error.$message }}</span
+          >
         </div>
         <div class="input-div">
           <label for="author" class="modal-input-label">Author</label>
@@ -50,8 +62,14 @@
             class="modal-input"
             placeholder="Author"
             required
-            v-model="modalBook.author"
+            v-model="v$.author.$model"
           />
+          <span
+            class="error-msg"
+            v-for="(error, index) in v$.author.$errors"
+            :key="index"
+            >{{ error.$message }}</span
+          >
         </div>
         <div class="input-div">
           <label for="date" class="modal-input-label">Date</label>
@@ -61,8 +79,14 @@
             class="modal-input"
             placeholder="Date"
             required
-            v-model="modalBook.date"
+            v-model="v$.date.$model"
           />
+          <span
+            class="error-msg"
+            v-for="(error, index) in v$.date.$errors"
+            :key="index"
+            >{{ error.$message }}</span
+          >
         </div>
         <div class="modal-btn-group">
           <button
@@ -74,6 +98,7 @@
           <button
             type="submit"
             class="modal-submit-btn"
+            :disabled="v$.$invalid"
             @click.prevent="submitBook"
           >
             Submit
