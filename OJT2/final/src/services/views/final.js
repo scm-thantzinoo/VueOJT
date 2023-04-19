@@ -1,10 +1,10 @@
-import DateOfBirth from '@/components/DateOfBirth.vue'
-
+import store from '@/store'
 
 export default {
-    components: {
-        DateOfBirth
-    },
     setup() {
+        const usersList = store.getters.users;
+        return {
+            usersList
+        }
     }
 }

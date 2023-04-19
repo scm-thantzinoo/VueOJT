@@ -10,7 +10,7 @@
           <router-link class="header-link" :class="{'active-route': isRoute('/ojt-two')}" to="/ojt-two">OJT Two</router-link>
           <router-link class="header-link" :class="{'active-route': isRoute('/ojt-three')}" to="/ojt-three">OJT Three</router-link>
           <router-link class="header-link" :class="{'active-route': isRoute('/books-list')}" to="/books-list">Books List</router-link>
-          <router-link class="header-link" :class="{'active-route': isRoute('/final')}" to="/final">Final</router-link>
+          <router-link class="header-link" :class="{'active-route': isRoute('/final') || isRoute('/new-user')}" to="/final">Final</router-link>
     </div>
   </div>
 </template>

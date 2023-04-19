@@ -1,0 +1,3 @@
+.register-btn{
+    @apply border border-slate-600 bg-slate-700 shadow-lg px-4 py-2 rounded-lg uppercase font-bold tracking-wide ml-3 hover:bg-slate-600;
+}
