@@ -6,7 +6,7 @@ export default {
     props: ['dob'],
     setup(props) {
         const user_dob = ref(props.dob)
-        const age = computed(() => {
+        const user_age = computed(() => {
             const today = new Date()
             const birth = new Date(user_dob.value)
             let age = today.getFullYear() - birth.getFullYear()
@@ -18,7 +18,7 @@ export default {
         })
         return {
             user_dob,
-            age
+            user_age
         }
     }
 }

@@ -26,7 +26,7 @@ export default {
             gender: '',
             email: '',
             address: '',
-            dob: '2000-10-13',
+            dob: '',
             role: 'admin',
         }
         const new_user = reactive({
