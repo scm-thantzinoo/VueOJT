@@ -15,6 +15,8 @@ export default createStore({
   },
   mutations: {
     addUser(state, user) {
+      console.log("Users")
+      console.log(user)
       state.usersList.push(user)
     }
   },

@@ -64,7 +64,7 @@ export default {
             v$.value.$reset()
         }
         const submitForm = () => {
-            store.commit('addUser', new_user)
+            store.commit('addUser', {...new_user})
             clearInput()
             router.replace('/final')
         }

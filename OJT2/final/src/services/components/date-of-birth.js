@@ -3,12 +3,26 @@ import {
     ref
 } from "vue"
 export default {
-    props: ['dob'],
+    props: {
+        model: {
+            type: Object,
+            required: true,
+        },
+    },
     setup(props) {
-        const user_dob = ref(props.dob)
+        const maxDate = computed(() => {
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            const year = today.getFullYear();
+            return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        });
         const user_age = computed(() => {
+            if (!props.model.dob.$model || props.model.dob.$model == "") {
+                return "-"
+            }
             const today = new Date()
-            const birth = new Date(user_dob.value)
+            const birth = new Date(props.model.dob.$model)
             let age = today.getFullYear() - birth.getFullYear()
             const monthDiff = today.getMonth() - birth.getMonth()
             if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
@@ -17,8 +31,8 @@ export default {
             return age
         })
         return {
-            user_dob,
-            user_age
+            maxDate,
+            user_age,
         }
     }
 }
