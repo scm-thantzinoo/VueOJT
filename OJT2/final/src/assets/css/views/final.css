@@ -1,0 +1,48 @@
+.final-body{
+    @apply bg-slate-200 pt-10 flex items-center justify-center flex-col;
+}
+.final-btn-group{
+    @apply flex items-center justify-center gap-5;
+}
+.final-table{
+    @apply flex flex-col mt-6 mb-4;
+}
+.final-table-wrapper-1{
+    @apply -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8;
+}
+.final-table-wrapper-2{
+    @apply py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8;
+}
+.final-table-wrapper-3{
+    @apply shadow overflow-hidden border-b border-gray-200 sm:rounded-lg;
+}
+.final-table-main{
+    @apply min-w-full divide-y divide-gray-200;
+}
+.final-table-head{
+    @apply bg-gray-50;
+}
+.final-table-head-cell{
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+.final-table-body{
+    @apply bg-white divide-y divide-gray-200;
+}
+.final-table-data-cell{
+    @apply px-6 py-4 whitespace-nowrap;
+}
+.add-user-btn-group{
+    @apply flex flex-col justify-center items-center;
+}
+.add-user-title{
+    @apply text-sm text-gray-600 mb-3;
+}
+.add-user-btn{
+    @apply border text-green-100 border-green-600 bg-green-700 shadow-lg px-4 py-2 rounded-lg uppercase font-bold tracking-wide ml-3 hover:bg-green-600;
+}
+.verticle-divider{
+    @apply w-px h-24 bg-gray-400 mx-6;
+}
+.final-no-user{
+    @apply text-slate-800 font-bold tracking-wide text-3xl mt-5;
+}

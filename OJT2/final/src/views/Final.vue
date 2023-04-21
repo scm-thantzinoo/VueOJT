@@ -1,83 +1,56 @@
 <template>
-  <div class="bg-slate-200 pt-10 flex items-center justify-center flex-col">
-    <router-link class="header-link text-white" to="/new-user"
-      >+ Register</router-link
-    >
-    <div class="flex flex-col mt-6" v-if="usersList.length">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div
-            class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-          >
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
+  <div class="final-body">
+    <div class="final-btn-group">
+      <div>
+        <router-link class="header-link text-white" to="/new-user"
+          >+ Register</router-link
+        >
+      </div>
+      <div class="verticle-divider" v-if="usersList.length < 3"></div>
+      <div class="add-user-btn-group" v-if="usersList.length < 3">
+        <p class="add-user-title">or save Time and</p>
+        <button class="add-user-btn" @click="createRandomUsers">
+          Add 3 Users
+        </button>
+      </div>
+    </div>
+    <div class="final-table" v-if="usersList.length">
+      <div class="final-table-wrapper-1">
+        <div class="final-table-wrapper-2">
+          <div class="final-table-wrapper-3">
+            <table class="final-table-main">
+              <thead class="final-table-head">
                 <tr>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    User ID
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Username
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Gender
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Email
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Address
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    DOB
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Age
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Role
-                  </th>
+                  <th scope="col" class="final-table-head-cell">User ID</th>
+                  <th scope="col" class="final-table-head-cell">Username</th>
+                  <th scope="col" class="final-table-head-cell">Gender</th>
+                  <th scope="col" class="final-table-head-cell">Email</th>
+                  <th scope="col" class="final-table-head-cell">Address</th>
+                  <th scope="col" class="final-table-head-cell">DOB</th>
+                  <th scope="col" class="final-table-head-cell">Age</th>
+                  <th scope="col" class="final-table-head-cell">Role</th>
                 </tr>
               </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
+              <tbody class="final-table-body">
                 <tr v-for="(user, index) in usersList" :key="index">
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="final-table-data-cell">
                     {{ user.user_id }}
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="final-table-data-cell">
                     {{ user.username }}
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.gender }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.email }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="final-table-data-cell capitalize">
+                    {{ user.gender }}
+                  </td>
+                  <td class="final-table-data-cell">{{ user.email }}</td>
+                  <td class="final-table-data-cell">
                     {{ user.address }}
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.dob }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.age }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.role }}</td>
+                  <td class="final-table-data-cell">{{ user.dob }}</td>
+                  <td class="final-table-data-cell">{{ user.age }}</td>
+                  <td class="final-table-data-cell capitalize">
+                    {{ user.role }}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -85,9 +58,7 @@
         </div>
       </div>
     </div>
-    <p class="text-slate-800 font-bold tracking-wide text-3xl mt-5" v-else>
-      No User yet. Create One
-    </p>
+    <p class="final-no-user" v-else>No User yet.</p>
   </div>
 </template>
 
