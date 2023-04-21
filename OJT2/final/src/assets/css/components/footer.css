@@ -1,6 +1,6 @@
 .footer{
-    @apply w-full text-slate-300;
+    @apply bg-slate-900 py-4 text-center;
 }
 .footer p{
-    @apply bg-slate-800 text-center py-3 text-xl;
+    @apply text-sm text-slate-300 ;
 }

@@ -1,5 +1,5 @@
 .body-text{
-    @apply bg-slate-700 w-full text-center min-h-screen tracking-widest flex items-center justify-center
+    @apply bg-slate-700 w-full text-center tracking-widest flex items-center justify-center
 }
 
 .body-text p{

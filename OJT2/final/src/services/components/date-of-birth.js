@@ -8,6 +8,10 @@ export default {
             type: Object,
             required: true,
         },
+        isConfirmed: {
+            type: Boolean,
+            required: true,
+        }
     },
     setup(props) {
         const maxDate = computed(() => {
@@ -28,6 +32,7 @@ export default {
             if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
                 age--
             }
+            props.model.age.$model = age;
             return age
         })
         return {

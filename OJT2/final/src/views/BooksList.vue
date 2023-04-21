@@ -16,13 +16,25 @@
             </tr>
           </thead>
           <tbody class="table-body">
-            <Book v-for="(book, index) in books" :key="index" :book="book" @changeData="changeBookData" />
+            <Book
+              v-for="(book, index) in books"
+              :key="index"
+              :book="book"
+              @changeData="changeBookData"
+            />
           </tbody>
         </table>
       </div>
     </div>
-    
-    <Modal v-if="modalBook" :book="modalBook" :isNewBook="isNewBook" @modalCancel="modalCancel" @editBook="editBook"  @createNewBook="createNewBook"/>
+
+    <Modal
+      v-if="modalBook"
+      :book="modalBook"
+      :isNewBook="isNewBook"
+      @modalCancel="modalCancel"
+      @editBook="editBook"
+      @createNewBook="createNewBook"
+    />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-slate-200 pt-8 pb-8">
+  <div class="container bg-slate-200 py-4">
     <div
       class="w-2/5 mx-auto bg-white bg-opacity-30 rounded-lg shadow-lg px-6 py-8 backdrop-filter backdrop-blur-lg"
     >
@@ -34,6 +34,7 @@
             type="text"
             placeholder="Enter Username"
             v-model="v$.username.$model"
+            :disabled="isConfirmed"
           />
           <span
             class="error-msg"
@@ -51,6 +52,7 @@
               name="gender"
               value="male"
               v-model="v$.gender.$model"
+              :disabled="isConfirmed"
             />
             <label class="text-sm font-medium text-gray-700 mr-4" for="gender"
               >Male</label
@@ -61,6 +63,7 @@
               name="gender"
               value="female"
               v-model="v$.gender.$model"
+              :disabled="isConfirmed"
             />
             <label class="text-sm font-medium text-gray-700" for="gender"
               >Female</label
@@ -83,6 +86,7 @@
             type="email"
             placeholder="Enter Email"
             v-model="v$.email.$model"
+            :disabled="isConfirmed"
           />
           <span
             class="error-msg"
@@ -101,6 +105,7 @@
             rows="3"
             placeholder="Enter Address"
             v-model="v$.address.$model"
+            :disabled="isConfirmed"
           ></textarea>
           <span
             class="error-msg"
@@ -109,7 +114,7 @@
             >{{ error.$message }}</span
           >
         </div>
-        <date-of-birth :model="v$" />
+        <date-of-birth :model="v$" :isConfirmed="isConfirmed" />
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="user_role"
             >User Role</label
@@ -118,7 +123,9 @@
             class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
             id="user_role"
             v-model="v$.role.$model"
+            :disabled="isConfirmed"
           >
+            <option value="" selected disabled>Please select role.</option>
             <option value="admin">Admin</option>
             <option value="user">User</option>
             <option value="guest">Guest</option>

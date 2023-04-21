@@ -27,7 +27,8 @@ export default {
             email: '',
             address: '',
             dob: '',
-            role: 'admin',
+            age: '',
+            role: '',
         }
         const new_user = reactive({
             ...new_user_initial
@@ -52,6 +53,9 @@ export default {
             },
             dob: {
                 required: helpers.withMessage("Date of Birth is required.", required),
+            },
+            age: {
+                required: helpers.withMessage("Age is required.", required),
             },
             role: {
                 required: helpers.withMessage("Role is required.", required),

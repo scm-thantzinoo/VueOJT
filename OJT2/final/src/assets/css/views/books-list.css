@@ -1,5 +1,5 @@
 .books-list-container {
-    @apply bg-slate-700 py-8 w-full min-h-screen;
+    @apply bg-slate-700 py-8 w-full;
 }
 
 .books-list-header{
