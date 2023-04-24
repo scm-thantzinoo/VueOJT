@@ -18,7 +18,7 @@ export default {
             const today = new Date();
             const month = today.getMonth() + 1;
             const day = today.getDate();
-            const year = today.getFullYear();
+            const year = today.getFullYear() - 1;
             return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
         });
         const user_age = computed(() => {
